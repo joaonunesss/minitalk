@@ -6,33 +6,26 @@
 #    By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/23 15:22:11 by jmarinho          #+#    #+#              #
-#    Updated: 2023/05/23 18:44:59 by jmarinho         ###   ########.fr        #
+#    Updated: 2023/05/26 14:55:09 by jmarinho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = server.c client.c \
-
-NAME = minitalk.a
-
-OBJS = ${SRC:.c=.o}
+PRINTF = ft_printf/libftprintf.a
 
 RM = rm -f
 
 FLAGS = -Wall -Wextra -Werror
 
-all: ${NAME}
-
-$(NAME): ${OBJS}
+all:
 	make -C ft_printf
-	cp ft_printf/ft_printf.a ${NAME}
-	ar rcs ${NAME} ${OBJS}
+	cc ${FLAGS} client.c ${PRINTF} -o client
+	cc ${FLAGS} server.c ${PRINTF} -o server
 
 clean:
-	${RM} ${OBJS}
 	make clean -C ft_printf
 
 fclean: clean
-	${RM} ${NAME}
+	${RM} server client
 	make fclean -C ft_printf
 
 re: fclean all

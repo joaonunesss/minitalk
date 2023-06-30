@@ -6,13 +6,13 @@
 /*   By: jmarinho <jmarinho@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 15:27:46 by jmarinho          #+#    #+#             */
-/*   Updated: 2023/05/29 13:07:30 by jmarinho         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:54:16 by jmarinho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf/ft_printf.h"
 
-void	send_bits(int server_pid, char c)
+void	send_bits(int server_pid, int c)
 {
 	int	bit_client;
 
@@ -35,7 +35,7 @@ int	main(int ac, char *av[])
 
 	if (ac != 3)
 	{
-		printf("./client <server_pid>  <message to write in server>\n");
+		ft_printf("./client <server_pid>  <message to write in server>\n");
 		return (1);
 	}
 	else
